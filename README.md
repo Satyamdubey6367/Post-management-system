@@ -68,6 +68,8 @@ Testing:-
  Ignore Files:-
 
  - .env
+ - node_modules
+   
 
  Prettier Formatting:-
  - npm run prettier
