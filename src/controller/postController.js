@@ -20,7 +20,7 @@ const authenticate = (req, res, next) => {
 const createPost = async (req, res) => {
   try {
     const { name, description, tags, imageUrl } = req.body;
-    console.log(req.body, "body");
+
 
     function postUserId() {
       const now = new Date();
@@ -34,7 +34,6 @@ const createPost = async (req, res) => {
       const milliseconds = String(now.getMilliseconds()).padStart(3, "0");
 
       const postUserIds = `post-${year}${month}${day}-${hours}${minutes}${seconds}-${milliseconds}`;
-      console.log(postUserIds, "postUserIds");
       return postUserIds;
     }
     const postData = await Post.create({
@@ -46,7 +45,6 @@ const createPost = async (req, res) => {
       imageUrl,
     });
 
-    console.log(postData, "post");
     res.status(201).json({ message: "Post created successfully.", postData });
   } catch (err) {
     res
